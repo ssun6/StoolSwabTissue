@@ -98,6 +98,7 @@ include_graphics(lower)
 
 ```
 
+The first panel corresponds with the boxplot on the x-axis. The second panel corresponds with the boxplot of the y-axis.
 The upper image comes from the publication.  The lower image is the pipeline result file:            
   ``r showPipelineFile(lower)``
 
@@ -129,6 +130,7 @@ include_graphics(upper)
 include_graphics(lower)
 ```
 
+The first panel corresponds with the boxplot on the x-axis. The second panel corresponds with the boxplot of the y-axis.
 The upper image comes from the publication.  The lower image is the pipeline result file:            
   ``r showPipelineFile(lower)``
 
@@ -207,7 +209,8 @@ include_graphics(lower)
 
 ```
 
-The left upper comes from the publication.  The lower image is the pipeline result file:            
+The first panel corresponds with the boxplot on the x-axis. The second panel corresponds with the boxplot of the y-axis.
+The upper upper comes from the publication.  The lower image is the pipeline result file:            
   ``r showPipelineFile(lower)``
 
 
@@ -237,6 +240,7 @@ include_graphics(upper)
 include_graphics(lower)
 ```
 
+The first panel corresponds with the boxplot on the x-axis. The second panel corresponds with the boxplot of the y-axis.
 The upper image comes from the publication.  The lower image is the pipeline result file:            
   ``r showPipelineFile(lower)``
 

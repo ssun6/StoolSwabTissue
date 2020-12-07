@@ -5,7 +5,6 @@
 
 This repository contains:         
 
- * Configuration files used for sequence processing for all sub-projects, see folder: `SequenceProcessing`
  * Counts files produced by processing the sequences, see folder: `data/counts`
  * Metadata files, see folder: `data/metadata`
  * Configuration file to run the analysis component of the project, including all Rcode, see folder: `Analysis`
