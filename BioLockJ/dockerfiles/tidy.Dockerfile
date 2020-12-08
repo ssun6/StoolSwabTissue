@@ -1,4 +1,4 @@
-## build command: docker build -f tidy.Dockerfile -t asorgen/tidy:v1 .
+## build command: docker build -f tidy.Dockerfile -t biolockjdevteam/gg-tidyr:v1 .
 
 FROM rocker/tidyverse:3.6.3
 

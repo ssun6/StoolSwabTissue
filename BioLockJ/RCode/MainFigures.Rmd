@@ -98,7 +98,7 @@ include_graphics(lower)
 
 ```
 
-The first panel corresponds with the boxplot on the x-axis. The second panel corresponds with the boxplot of the y-axis.
+The left two boxplots correspond with the x- and y-axis of the PCoA, respectively.
 The upper image comes from the publication.  The lower image is the pipeline result file:            
   ``r showPipelineFile(lower)``
 
@@ -130,7 +130,7 @@ include_graphics(upper)
 include_graphics(lower)
 ```
 
-The first panel corresponds with the boxplot on the x-axis. The second panel corresponds with the boxplot of the y-axis.
+The left two boxplots correspond with the x- and y-axis of the PCoA, respectively.
 The upper image comes from the publication.  The lower image is the pipeline result file:            
   ``r showPipelineFile(lower)``
 
@@ -209,8 +209,8 @@ include_graphics(lower)
 
 ```
 
-The first panel corresponds with the boxplot on the x-axis. The second panel corresponds with the boxplot of the y-axis.
-The upper upper comes from the publication.  The lower image is the pipeline result file:            
+The left two boxplots correspond with the x- and y-axis of the PCoA, respectively.
+The upper image comes from the publication.  The lower image is the pipeline result file:            
   ``r showPipelineFile(lower)``
 
 
@@ -240,7 +240,7 @@ include_graphics(upper)
 include_graphics(lower)
 ```
 
-The first panel corresponds with the boxplot on the x-axis. The second panel corresponds with the boxplot of the y-axis.
+The left two boxplots correspond with the x- and y-axis of the PCoA, respectively.
 The upper image comes from the publication.  The lower image is the pipeline result file:            
   ``r showPipelineFile(lower)``
 

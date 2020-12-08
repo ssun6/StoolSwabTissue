@@ -1,4 +1,4 @@
-## build command: docker build -f graphics.Dockerfile -t asorgen/graphics:v1 .
+## build command: docker build -f graphics.Dockerfile -t biolockjdevteam/r-pheatmap-analysis:v1 .
 
 FROM r-base:3.6.0
 
@@ -26,25 +26,12 @@ RUN Rscript -e "install.packages('stringr', dependencies=c('Depends', 'Imports')
 #4.) Install vegan R Packages
 RUN Rscript -e "install.packages('vegan', dependencies=c('Depends', 'Imports') )"
 
-#5.) Install more R Packages
-#RUN Rscript -e "install.packages('tidyr', dependencies=c('Depends', 'Imports') )"
-#RUN Rscript -e "install.packages('ggpubr', dependencies=c('Depends', 'Imports') )"
-#RUN Rscript -e "install.packages('lme4', dependencies=c('Depends', 'Imports') )"
-#RUN Rscript -e "install.packages('lmerTest', dependencies=c('Depends', 'Imports') )"
-#RUN Rscript -e "install.packages('RGraphics', dependencies=c('Depends', 'Imports') )"
-
-
-#6.) check that packages installed
+#5.) check that packages installed
 RUN Rscript -e "library('ggplot2'); library('gridExtra'); library('reshape2'); library('ggrepel'); library('vegan'); "
 RUN Rscript -e "library('ggthemes'); library('nlme'); library('pheatmap'); library('dplyr'); library('stringr'); "
-#RUN Rscript -e "library('tidyr'); "
-#RUN Rscript -e "library('ggpubr'); "
-#RUN Rscript -e "library('lme4'); "
-#RUN Rscript -e "library('lmerTest'); "
-#RUN Rscript -e "library('RGraphics'); "
 
 
-#7.) Cleanup
+#8.) Cleanup
 RUN	apt-get clean && \
 	find / -name *python* | xargs rm -rf && \
 	rm -rf /tmp/* && \
