@@ -1,0 +1,125 @@
+---
+title: "BioLockJ Reproduced Figures"
+author: "Shan Sun, Alicia Sorgen, and Ivory Blakley"
+output:
+  pdf_document:
+    toc: true
+    toc_depth: 3
+  html_document:
+    toc: true
+    toc_depth: 3
+    code_folding: hide
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+\newpage
+# Review Reproduced Figures
+
+This is a guidd to help compare figures as they appear in the published work, and the corresponding figures that were re-generated on:                          
+` `r date()` `
+
+
+The MainFigures.pdf output by the MainFigures module is probably of much greater interest to readers who want to have a side-by-side image comparison.
+
+This document aims to:              
+
+ * Create an easy way for the authors to check that the annotated figures align with the output of the script, even throughout an iterative review process that may prompt edits at multiple stages of the pipeline.
+ * Make the pipeline transparent to readers.
+ * Facilitate reproducing the computational components of this work.
+
+
+```{r}
+pipeRoot <- dirname(dirname(getwd()))
+showPipelineRoot <- function(){
+    # in docker, the $BLJ_PROJ folder is mapped to 'mnt/efs/pipelines'
+    return(gsub("/mnt/efs/pipelines", "<BLJ_PROJ folder>", pipeRoot))
+}
+showPipelineFile <- function(filePath){
+    return(gsub(paste0(pipeRoot,"/"), "", filePath))
+}
+origPanels = getwd()
+```
+
+The re-produced images are taken from modules under this folder:               
+``r showPipelineRoot()``
+
+
+
+
+```{r include = FALSE}
+# library(stringr)
+```
+
+\newpage
+## Supplemental Table 1
+
+```{r TabS1, out.width="75%"}
+tabS1 = file.path(origPanels, "TableS1.pdf")
+include_graphics(tabS1)
+```
+
+
+\newpage
+## Supplemental Table 4
+
+```{r TabS4, out.width="75%"}
+tabS4 = file.path(origPanels, "TableS4.pdf")
+include_graphics(tabS4)
+```
+
+
+\newpage
+## Supplemental Table 5
+
+```{r TabS5, out.width="75%"}
+tabS5 = file.path(origPanels, "TableS5.pdf")
+include_graphics(tabS5)
+```
+
+\newpage
+## Supplemental Figure 1
+
+```{r FigS1, out.width="75%"}
+figS1 = file.path(origPanels, "FigS1.pdf")
+include_graphics(figS1)
+```
+
+\newpage
+### Sequence Depth Boxplot
+
+```{r out.width="50%"}
+fileName <- "seq_depth.pdf"
+left = file.path(origPanels, fileName)
+seqDir <- file.path(dir(pipeRoot, full.names = TRUE, pattern = "SeqDepth"), "output")
+right <- file.path(seqDir, fileName) 
+include_graphics(c(left, right))
+```
+
+The left image comes from the publication.  The right image is the pipeline result file:            
+  ``r showPipelineFile(right)``
+
+\newpage
+## Supplemental Figure 3a
+
+```{r FigS3a, out.width="75%"}
+figS3a = file.path(origPanels, "FigS3a.pdf")
+include_graphics(figS3a)
+```
+
+\newpage
+## Supplemental Figure 3b
+
+```{r FigS3b, out.width="75%"}
+figS3b = file.path(origPanels, "FigS3b.pdf")
+include_graphics(figS3b)
+```
+
+\newpage
+```{r}
+sessionInfo()
+```
+

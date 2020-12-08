@@ -1,0 +1,535 @@
+---
+title: "Review Figures"
+author: "Shan Sun, Alicia Sorgen, and Ivory Blakley"
+output:
+  pdf_document:
+    toc: true
+    toc_depth: 3
+  html_document:
+    toc: true
+    toc_depth: 3
+    code_folding: hide
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+\newpage
+# Review Reproduced Figures
+
+This is a side-by-side comparison between figures as they appear in the published work, and the corresponding figures that were re-generated on:                          
+` `r date()` `
+
+This document aims to:              
+
+ * Create an easy way for the authors to check that the annotated figures align with the output of the script, even throughout an iterative review process that may prompt edits at multiple stages of the pipeline.
+ * Make the pipeline transparent to readers.
+ * Facilitate reproducing the computational components of this work.
+
+The old and new may not be bit-for-bit identical.  There may some random seed that is used in a training step, or a difference in font libraries; graphics parameters like resolution or image size may be different, the publication may have some manually curated labels that the script-generated image does not.  There are many acceptable reasons why a reproduction of a figure may not be identical to the original; but we expect that the core conclusion from the original will hold for the reproduction.
+
+```{r}
+pipeRoot <- dirname(dirname(getwd()))
+showPipelineRoot <- function(){
+    # in docker, the $BLJ_PROJ folder is mapped to 'mnt/efs/pipelines'
+    return(gsub("/mnt/efs/pipelines", "<BLJ_PROJ folder>", pipeRoot))
+}
+showPipelineFile <- function(filePath){
+    return(gsub(paste0(pipeRoot,"/"), "", filePath))
+}
+origPanels = paste0(dirname(getwd()), "/resources")
+```
+
+The re-produced images are taken from modules under this folder:               
+``r showPipelineRoot()``
+
+
+\newpage
+## Figure 1
+
+```{r Fig1, out.width="100%"}
+fig1 = file.path(origPanels, "Fig1.pdf")
+include_graphics(fig1)
+```
+
+\newpage
+### Panel A
+
+```{r out.width="50%"}
+fileName="tax_alpha_box_l6.pdf"
+left = file.path(origPanels, fileName)
+
+PCoAPERMANOVAmodule = dir(pipeRoot, pattern="PCoA_permanova", full.names=TRUE)
+pcoOutDir = file.path(PCoAPERMANOVAmodule, "output")
+right = file.path(pcoOutDir, fileName)
+
+include_graphics(c(left, right))
+```
+
+The left image comes from the publication.  The right image is the pipeline result file:            
+``r showPipelineFile(right)``
+
+\newpage
+### Panel B PCoA
+
+```{r out.width="50%"}
+left = file.path(origPanels, "tax_pcoa12_type_l6.pdf")
+
+right = file.path(pcoOutDir, "tax_pcoa12_type_l6.pdf")
+
+include_graphics(c(left, right))
+```
+
+The left image comes from the publication.  The right image is the pipeline result file:            
+``r showPipelineFile(right)``
+
+\newpage
+### Panel B boxplot insets
+
+```{r out.width="50%"}
+fileName <- "tax_pcoa1234_type_box_l6.pdf"
+upper = file.path(origPanels, fileName)
+lower = file.path(pcoOutDir, fileName)
+
+include_graphics(upper)
+include_graphics(lower)
+
+```
+
+The left two boxplots correspond with the x- and y-axis of the PCoA, respectively.
+The upper image comes from the publication.  The lower image is the pipeline result file:            
+  ``r showPipelineFile(lower)``
+
+
+
+\newpage
+### Panel C PCoA
+
+```{r out.width="50%"}
+fileName <- "two_tax_pcoa12_type_l6.pdf"
+left = file.path(origPanels, fileName)
+right = file.path(pcoOutDir, fileName)
+
+include_graphics(c(left, right))
+```
+
+The left image comes from the publication.  The right image is the pipeline result file:            
+  ``r showPipelineFile(right)``
+
+\newpage
+### Panel C boxplot insets
+
+```{r out.width="50%"}
+fileName <- "two_tax_pcoa1234_type_box_ss_l6.pdf"
+upper = file.path(origPanels, fileName)
+lower = file.path(pcoOutDir, fileName)
+
+include_graphics(upper)
+include_graphics(lower)
+```
+
+The left two boxplots correspond with the x- and y-axis of the PCoA, respectively.
+The upper image comes from the publication.  The lower image is the pipeline result file:            
+  ``r showPipelineFile(lower)``
+
+\newpage
+## Figure2 
+
+```{r Fig2, out.width="90%"}
+fig2 = file.path(origPanels, "Fig2.pdf")
+include_graphics(fig2)
+```
+
+\newpage
+### Heatmap
+
+```{r out.width="50%"}
+fileName <- "gen_heat.pdf"
+left = file.path(origPanels, fileName)
+heatDir <- file.path(dir(pipeRoot, full.names = TRUE, pattern = "Pheatmap"), "output")
+right <- file.path(heatDir, fileName) 
+include_graphics(c(left, right))
+```
+
+The left image comes from the publication.  The right image is the pipeline result file:            
+  ``r showPipelineFile(right)``
+
+\newpage
+## Figure 3
+
+```{r Fig3, out.width="100%"}
+fig3 = file.path(origPanels, "Fig3.pdf")
+include_graphics(fig3)
+```
+
+\newpage
+### Panel A
+
+```{r out.width="50%"}
+fileName="path_alpha_box.pdf"
+left = file.path(origPanels, fileName)
+
+Pathwaysmodule = dir(pipeRoot, pattern="Pathways", full.names=TRUE)
+PathwaysOutDir = file.path(Pathwaysmodule, "output")
+right = file.path(PathwaysOutDir, fileName)
+
+include_graphics(c(left, right))
+```
+
+The left image comes from the publication.  The right image is the pipeline result file:            
+``r showPipelineFile(right)``
+
+\newpage
+### Panel B PCoA
+
+```{r out.width="50%"}
+fileName <- "path_pcoa12_type.pdf"
+left = file.path(origPanels, fileName)
+
+right = file.path(PathwaysOutDir, fileName)
+
+include_graphics(c(left, right))
+```
+
+The left image comes from the publication.  The right image is the pipeline result file:            
+``r showPipelineFile(right)``
+
+\newpage
+### Panel B boxplot insets
+
+```{r out.width="50%"}
+fileName <- "path_pcoa1234_type_box.pdf"
+upper = file.path(origPanels, fileName)
+lower = file.path(PathwaysOutDir, fileName)
+
+include_graphics(upper)
+include_graphics(lower)
+
+```
+
+The left two boxplots correspond with the x- and y-axis of the PCoA, respectively.
+The upper image comes from the publication.  The lower image is the pipeline result file:            
+  ``r showPipelineFile(lower)``
+
+
+\newpage
+### Panel C PCoA
+
+```{r out.width="50%"}
+fileName <- "two_path_pcoa12_type.pdf"
+left = file.path(origPanels, fileName)
+right = file.path(PathwaysOutDir, fileName)
+
+include_graphics(c(left, right))
+```
+
+The left image comes from the publication.  The right image is the pipeline result file:            
+  ``r showPipelineFile(right)``
+
+\newpage
+### Panel C boxplot insets
+
+```{r out.width="50%"}
+fileName <- "two_path_pcoa1234_type_box.pdf"
+upper = file.path(origPanels, fileName)
+lower = file.path(PathwaysOutDir, fileName)
+
+include_graphics(upper)
+include_graphics(lower)
+```
+
+The left two boxplots correspond with the x- and y-axis of the PCoA, respectively.
+The upper image comes from the publication.  The lower image is the pipeline result file:            
+  ``r showPipelineFile(lower)``
+
+\newpage
+## Figure 4
+
+```{r Fig4, out.width="75%"}
+fig4 = file.path(origPanels, "Fig4.pdf")
+include_graphics(fig4)
+```
+
+\newpage
+### Pathway Heatmap
+
+```{r out.width="50%"}
+fileName <- "path_heat_full.pdf"
+left = file.path(origPanels, fileName)
+heatDir <- file.path(dir(pipeRoot, full.names = TRUE, pattern = "PathwayHeatmap"), "output")
+right <- file.path(heatDir, fileName) 
+include_graphics(c(left, right))
+```
+
+The left image comes from the publication.  The right image is the pipeline result file:            
+  ``r showPipelineFile(right)``
+
+\newpage
+## Figure 5
+
+```{r Fig5, out.width="60%"}
+fig5 = file.path(origPanels, "Fig5.pdf")
+include_graphics(fig5)
+```
+
+\newpage
+### Panel A
+
+```{r}
+fileName="gen_tax_onesample_age_pair.pdf"
+upper = file.path(origPanels, fileName)
+onePath = file.path(dir(pipeRoot, full.names=TRUE, pattern="_OneSample"), "output")
+lower = file.path(onePath, fileName)
+```
+
+Original
+
+```{r fig5aoriginal}
+include_graphics(upper)
+```
+
+Reproduction
+
+```{r fig5aReproduced }
+include_graphics(lower)
+```
+
+The upper image comes from the publication.  The lower image is the pipeline result file:            
+  ` `r showPipelineFile(lower)` `
+
+\newpage
+### Panel B
+
+```{r}
+fileName="gen_tax_onesample_sex_pair.pdf"
+upper = file.path(origPanels, fileName)
+onePath = file.path(dir(pipeRoot, full.names=TRUE, pattern="_OneSample"), "output")
+lower = file.path(onePath, fileName)
+```
+
+Original
+
+```{r fig5boriginal}
+include_graphics(upper)
+```
+
+Reproduction
+
+```{r fig5bReproduced }
+include_graphics(lower)
+```
+
+The upper image comes from the publication.  The lower image is the pipeline result file:            
+  ` `r showPipelineFile(lower)` `
+
+\newpage
+### Panel C
+
+```{r}
+fileName="gen_tax_onesample_BMI_pair.pdf"
+upper = file.path(origPanels, fileName)
+onePath = file.path(dir(pipeRoot, full.names=TRUE, pattern="_OneSample"), "output")
+lower = file.path(onePath, fileName)
+```
+
+Original
+
+```{r fig5coriginal}
+include_graphics(upper)
+```
+
+Reproduction
+
+```{r fig5cReproduced }
+include_graphics(lower)
+```
+
+The upper image comes from the publication.  The lower image is the pipeline result file:            
+  ` `r showPipelineFile(lower)` `
+
+\newpage
+### Panel D
+
+```{r}
+fileName="gen_tax_onesample_antibiotics_pair.pdf"
+upper = file.path(origPanels, fileName)
+onePath = file.path(dir(pipeRoot, full.names=TRUE, pattern="_OneSample"), "output")
+lower = file.path(onePath, fileName)
+```
+
+Original
+
+```{r fig5doriginal}
+include_graphics(upper)
+```
+
+Reproduction
+
+```{r fig5dReproduced }
+include_graphics(lower)
+```
+
+The upper image comes from the publication.  The lower image is the pipeline result file:            
+  ` `r showPipelineFile(lower)` `
+
+\newpage
+### Panel E
+
+```{r}
+fileName="gen_tax_onesample_NSAIDS_use_pair.pdf"
+upper = file.path(origPanels, fileName)
+onePath = file.path(dir(pipeRoot, full.names=TRUE, pattern="_OneSample"), "output")
+lower = file.path(onePath, fileName)
+```
+
+Original
+
+```{r fig5eoriginal}
+include_graphics(upper)
+```
+
+Reproduction
+
+```{r fig5eReproduced }
+include_graphics(lower)
+```
+
+The upper image comes from the publication.  The lower image is the pipeline result file:            
+  ` `r showPipelineFile(lower)` `
+
+\newpage
+## Figure 6
+
+```{r Fig6, out.width="60%"}
+fig6 = file.path(origPanels, "Fig6.pdf")
+include_graphics(fig6)
+```
+
+\newpage
+### Panel A
+
+```{r}
+fileName="path_tax_onesample_age_pair.pdf"
+upper = file.path(origPanels, fileName)
+onePath = file.path(dir(pipeRoot, full.names=TRUE, pattern="PathwayOneSample"), "output")
+lower = file.path(onePath, fileName)
+```
+
+Original
+
+```{r fig6aoriginal}
+include_graphics(upper)
+```
+
+Reproduction
+
+```{r fig6aReproduced }
+include_graphics(lower)
+```
+
+The upper image comes from the publication.  The lower image is the pipeline result file:            
+  ` `r showPipelineFile(lower)` `
+
+\newpage
+### Panel B
+
+```{r}
+fileName="path_tax_onesample_sex_pair.pdf"
+upper = file.path(origPanels, fileName)
+lower = file.path(onePath, fileName)
+```
+
+Original
+
+```{r fig6boriginal}
+include_graphics(upper)
+```
+
+Reproduction
+
+```{r fig6bReproduced }
+include_graphics(lower)
+```
+
+The upper image comes from the publication.  The lower image is the pipeline result file:            
+  ` `r showPipelineFile(lower)` `
+
+\newpage
+### Panel C
+
+```{r}
+fileName="path_tax_onesample_BMI_pair.pdf"
+upper = file.path(origPanels, fileName)
+lower = file.path(onePath, fileName)
+```
+
+Original
+
+```{r fig6coriginal}
+include_graphics(upper)
+```
+
+Reproduction
+
+```{r fig6cReproduced }
+include_graphics(lower)
+```
+
+The upper image comes from the publication.  The lower image is the pipeline result file:            
+  ` `r showPipelineFile(lower)` `
+
+\newpage
+### Panel D
+
+```{r}
+fileName="path_tax_onesample_antibiotics_pair.pdf"
+upper = file.path(origPanels, fileName)
+lower = file.path(onePath, fileName)
+```
+
+Original
+
+```{r fig6doriginal}
+include_graphics(upper)
+```
+
+Reproduction
+
+```{r fig6dReproduced }
+include_graphics(lower)
+```
+
+The upper image comes from the publication.  The lower image is the pipeline result file:            
+  ` `r showPipelineFile(lower)` `
+
+\newpage
+### Panel E
+
+```{r}
+fileName="path_tax_onesample_NSAIDS_use_pair.pdf"
+upper = file.path(origPanels, fileName)
+lower = file.path(onePath, fileName)
+```
+
+Original
+
+```{r fig6eoriginal}
+include_graphics(upper)
+```
+
+Reproduction
+
+```{r fig6eReproduced }
+include_graphics(lower)
+```
+
+The upper image comes from the publication.  The lower image is the pipeline result file:            
+  ` `r showPipelineFile(lower)` `
+
+
+\newpage
+```{r}
+sessionInfo()
+```
