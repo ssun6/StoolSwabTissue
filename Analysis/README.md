@@ -1,10 +1,10 @@
-# Steps to Reproduce RYGB Analysis
+# Steps to Reproduce Stool Analysis
 
 ## 1. Ensure that BioLockJ (v1.3.13 or newer) is on local system
 BioLockJ - https://biolockj-dev-team.github.io/BioLockJ/Getting-Started/
 
-## 2. Download RYGB_IntegratedAnalysis directory
-git clone https://github.com/FarnazFouladi/RYGB_IntegratedAnalysis2020.git
+## 2. Download StoolSwabTissue project
+git clone https://github.com/ssun6/StoolSwabTissue.git
 
 ## 3. Set up required software
 
@@ -32,6 +32,7 @@ Make sure all required R packages are installed
  * vegan
  * pheatmap
  * ggpubr
+ * knitr
 
 ## 4. Run BioLockJ pipeline
 
