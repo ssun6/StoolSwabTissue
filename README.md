@@ -10,7 +10,7 @@ This repository contains:
  * Configuration file to run the analysis component of the project, including all Rcode, see folder: `Analysis`
  * Results of the analysis (figures and tables), see folder: `results`
  
-See `BioLockJ/README` for instructions on how to repeat the entire analysis on your own machine, thus reproducing all figures and tables.  A review module was added to the pipeline to facilitate readers and reviewers comparing the reproduced output the the corresponding components in the manuscript.
+See `Analysis/README` for instructions on how to repeat the entire analysis on your own machine, thus reproducing all figures and tables.  A review module was added to the pipeline to facilitate readers and reviewers comparing the reproduced output the the corresponding components in the manuscript.
 
 ## Manuscript
 
