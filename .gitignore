@@ -1,4 +1,16 @@
+# system file
 *.DS_Store
+
+# Add metadata with caution
 metadata/*
+
+# Files that need approval (possibly subsetting) before git tracking
 IHC_data_20190503.csv
 metadata_20190503.csv
+
+# History files
+.Rhistory
+.Rapp.history
+
+# Session Data files
+.RData
