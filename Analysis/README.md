@@ -1,5 +1,7 @@
 # Steps to Reproduce Stool Analysis
 
+**Note** Two metadata files required for this analysis are still awaiting approval for git tracking.  In order to run the scripts here, you will need to contact the authors to get the restricted files.  We hope to include some form of these files in the repository (enough to repeat the analysis) when the project is made public.
+
 ## 1. Ensure that BioLockJ (v1.3.13 or newer) is on local system
 BioLockJ - https://biolockj-dev-team.github.io/BioLockJ/Getting-Started/
 
