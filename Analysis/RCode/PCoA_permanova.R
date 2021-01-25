@@ -69,7 +69,7 @@ for (n in 6:6){
   permanova_meta=matrix(nrow=5,ncol=6)
   x1=1
   
-  for (y2 in c(8,9,11,13,23)){
+  for (y2 in c(5:7,9,11)){
     for(y1 in 1:3){
       tab_s1_t=t(tab_s1[,map7$sample_type==sample_type[y1]&!is.na(map7[,y2])])
       map_y2=map7[map7$sample_type==sample_type[y1]&!is.na(map7[,y2]),y2]
